@@ -10,6 +10,7 @@ namespace A01HeszMonika
     class Program
     {
         static int[] adat = new int[1000];
+
         static void Beolvasas()
         {
             StreamReader sr = new StreamReader("adatok.dat");
@@ -20,10 +21,7 @@ namespace A01HeszMonika
                 for (int i = 0; i < adat.Length; i++)
                 {
                     adat[i] = Convert.ToInt32(atmeneti[i]);
-                    if (adat[i] % 2 != 0)
-                    {
-                        adat[i] = adat[i] * 2;
-                    }
+                    adat[i] = adat[i] * 2;
                 }
             }
             sr.Close();
@@ -32,7 +30,7 @@ namespace A01HeszMonika
         static void Maximumertek()
         {
             int max = 1;
-            for (int i = 0; i < adat.Length; i++)
+            for (int i = 1; i < adat.Length; i++)
             {
                 if (max < adat[i])
                 {
@@ -54,7 +52,8 @@ namespace A01HeszMonika
                     darab++;
                 }
             }
-            sw.WriteLine("Az 5-tel és 7-tel oszthatók száma: {0}", darab);
+            Console.WriteLine("Az 5-tel és 7-tel oszthatók száma: {0}", darab);
+            sw.WriteLine(darab);
             sw.Close();
         }
 
